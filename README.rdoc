@@ -3,10 +3,10 @@
 DBC Housing App:
 
 * Team:
-  Luiz Neves
-  Nick Prater
-  Cory Speisman
-  Josh Suich
+  - Luiz Neves
+  - Nick Prater
+  - Cory Speisman
+  - Josh Suich
 
 * Ruby version 1.9.3
 
