@@ -52,5 +52,3 @@ production:
   encoding: unicode
   database: DBCHousingApp_production
   pool: 5
-  username: DBCHousingApp
-  password:
