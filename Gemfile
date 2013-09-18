@@ -27,6 +27,15 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'rspec'
+gem 'rspec-core'
+
+gem 'capybara'
+
+gem 'launchy'
+
+gem 'selenium-webdriver'
+
 # => Added by Josh:
  gem  'guard'
  gem  'rb-fsevent'
