@@ -26,15 +26,23 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'rspec'
-gem 'rspec-core'
+# gem 'rspec'
+# gem 'rspec-core'
 
-gem 'capybara'
+# gem 'capybara'
 
 gem 'launchy'
 
 gem 'selenium-webdriver'
 
+group :test, :development do
+  gem "rspec-rails", "~> 2.0"
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+end
 # => Added by Josh:
 group :development do
   gem  'guard'
