@@ -8,7 +8,7 @@ DBCHousingApp::Application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-
+  get '/map'  =>  'map#index'
 
   root :to => 'sessions#new'
   # The priority is based upon order of creation: first created -> highest priority.
