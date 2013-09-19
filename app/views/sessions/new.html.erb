@@ -1,13 +1,15 @@
-<div>
-  <h3>Login</h3>
-<%= form_for(:session, url: login_path) do |f|%>
+<div class = "loginWrapper">
+  <div>
+    <h3>Login</h3>
+  <%= form_for(:session, url: login_path) do |f|%>
 
-  <%= f.text_field :email, :placeholder => "email" %>
+    <%= f.text_field :email, :placeholder => "email" %>
 
-  <%= f.password_field :password, :placeholder => "password" %>
+    <%= f.password_field :password, :placeholder => "password" %>
 
-  <%= f.submit "Login" %>
+    <%= f.submit "Login" %>
 
-<% end %>
+  <% end %>
 
+  </div>
 </div>
