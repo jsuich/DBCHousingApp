@@ -35,6 +35,11 @@ gem 'launchy'
 
 gem 'selenium-webdriver'
 
+gem 'dbc-ruby'
+
+gem 'omniauth'
+gem 'omniauth-dbc'
+
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
 end
