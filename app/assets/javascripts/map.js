@@ -1,8 +1,3 @@
-var geocoder;
-var map;
-var markers = [];
-
-
 function initialize() {
   geocoder = new google.maps.Geocoder();
   var latlng = new google.maps.LatLng(41.8899109, -87.6376566);
@@ -41,50 +36,20 @@ function codeAddress() {
 }
 
 
-function handleButtons () {
-  $('input[type="submit"]').hide();
-  $('.yesno').hide();
-
-  $('.check').click(function(event) {
-    event.preventDefault();
-    $(this).hide();
 
 
-    codeAddress();
-
-    $('.no').click(function(event) {
-      event.preventDefault()
-      $('#user_street_address').focus();
-      $(this).parent().hide();
-      $('.check').show();
-
-      deleteMarkers();
-    });
-
-    $('.yes').click(function(event) {
-      event.preventDefault();
-      $('.newUserWrapper form').submit();
-    });
-
-  });
-}
 
 
-function deleteMarkers () {
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(null);
-  }
-  markers = [];
-}
 
 
 
 
 $(document).ready(function() {
-// console.log($('.newUserWrapper'));
-if ($('.newUserWrapper').length > 0){
+
+if ($('.mapWrapper').length > 0){
   initialize();
-  handleButtons();
+  codeAddress();
+  console.log('words');
   }
 
 
