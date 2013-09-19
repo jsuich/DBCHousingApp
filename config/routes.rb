@@ -2,7 +2,7 @@ DBCHousingApp::Application.routes.draw do
 
 
   resources :locations
-  resources :user
+  resources :users
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

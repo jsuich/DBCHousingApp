@@ -1,11 +1,18 @@
 <div>
-<% form_for (:session, url: login_path) do |f|%>
+  <h3>Fill in your info</h3>
+<%= form_for(:user, url: users_path) do |f|%>
 
-<%= f.text_field :email, params[:email] %>
+<%= f.text_field :name, :placeholder => "Mike Perry" %>
+<%= f.text_field :cohort, :placeholder => "Nighthawks 2013" %>
+<%= f.email_field :email, :placeholder => "thefuturemrperry@mikelikesgpop.com" %>
+<%= f.telephone_field :phone_number, :placeholder => "XXX-XXX-XXXX" %>
 
-<%= f.password_field :password, params[:password] %>
+<%= f.text_field :street_address, :placeholder => "123 Main St., Apt. #" %>
+<%= f.text_field :city, :placeholder => "Chicago" %>
+<%= f.text_field :state, :placeholder => "IL" %>
+<%= f.text_field :zip, :placeholder => "60606" %>
 
-<%=f.submit "Login" %>
+<%=f.submit "Submit"%>
 
 <% end %>
 </div>
