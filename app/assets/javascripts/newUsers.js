@@ -4,12 +4,10 @@ var markers = [];
 
 
 function initialize() {
-
-
   geocoder = new google.maps.Geocoder();
   var latlng = new google.maps.LatLng(41.8899109, -87.6376566);
   var mapOptions = {
-    zoom: 10,
+    zoom: 14,
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
@@ -83,10 +81,11 @@ function deleteMarkers () {
 
 
 $(document).ready(function() {
-
+// console.log($('.newUserWrapper'));
+if ($('.newUserWrapper').length > 0){
   initialize();
-
   handleButtons();
+  }
 
 
 
