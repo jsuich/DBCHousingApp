@@ -2,7 +2,15 @@ DBCHousingApp::Application.routes.draw do
 
 
   resources :locations
-  resources :user
+  resources :users
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/map'  =>  'map#index'
+
+  root :to => 'sessions#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
