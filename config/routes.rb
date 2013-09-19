@@ -5,7 +5,11 @@ DBCHousingApp::Application.routes.draw do
   resources :users
 
   get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
+  # this is for omni-auth tutorial
+  get '/auth/:provider/callback', :to => 'sessions#create'
+  get '/auth/failure', :to => 'sessions#failure'
+  #this is our actual login route
+  #post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
   get '/map'  =>  'map#index'
