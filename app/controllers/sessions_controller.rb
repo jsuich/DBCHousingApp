@@ -13,14 +13,10 @@ class SessionsController < ApplicationController
     session[:user_attributes] = user_auth_attributes
     user_full = DBC::User.find(session[:user_attributes][:id])
     cohort_full = DBC::Cohort.find(user_full.cohort_id)
-    User.create(name: session[:user_attributes][:name],
-         cohort_name: cohort_full.name,
-           cohort_id: user_full.cohort_id,
-               email: session[:user_attributes][:email])
+    boot = User.find_or_create_by(email: session[:user_attributes].email)
+    boot.update_attributes(name: session[:user_attributes].name, cohort_name: cohort_full.name, cohort_id: user_full.cohort_id)
 
-
-
-    #redirect_to '/map'
+    redirect_to '/map'
   end
 
 
