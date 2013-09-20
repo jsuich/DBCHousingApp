@@ -14,5 +14,7 @@ DBCHousingApp::Application.routes.draw do
 
   get '/map'  =>  'map#index'
 
+  get '/grablocations' => 'map#grablocations'
+
   root :to => 'sessions#new'
 end

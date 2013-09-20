@@ -1,11 +1,11 @@
 var geocoder;
 var map;
 var markers = [];
+var latlng = new google.maps.LatLng(41.8899109, -87.6376566);
+var geocoder = new google.maps.Geocoder();
 
 
 function initialize() {
-  geocoder = new google.maps.Geocoder();
-  var latlng = new google.maps.LatLng(41.8899109, -87.6376566);
   var mapOptions = {
     zoom: 14,
     center: latlng,
@@ -19,6 +19,7 @@ function codeAddress() {
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
+      console.log(results[0].geometry.location);
       var marker = new google.maps.Marker({
           map: map,
           position: results[0].geometry.location
