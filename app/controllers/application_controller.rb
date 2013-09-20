@@ -15,9 +15,11 @@ class ApplicationController < ActionController::Base
 
   def buildHtml(location)
       @user_string = ''
-      @location_string = "<h2>#{location.street_address}</h2>"
+      @location_string = "<h3>#{location.street_address}</h3>"
     location.users.each do |user|
-       @user_string << "<p>#{user.name}</p>
+       @user_string << "
+       <img src='#{user.gravatar}'>
+       <p>#{user.name}</p>
        <p>#{user.cohort_name}</p>"
     end
     full_string = @location_string + @user_string

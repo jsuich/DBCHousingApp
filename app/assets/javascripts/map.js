@@ -68,12 +68,20 @@ function setMarker (stringArray) {
   var latlng = new google.maps.LatLng(locationObject[0].geometry.location.ob,locationObject[0].geometry.location.pb);
 
 
-
-
   var marker = new google.maps.Marker({
           map: map,
       });
   marker.setPosition(latlng);
+
+  var contentString = stringArray[0]
+
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map, marker);
+  });
 }
 
 

@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20130918230436) do
 
   create_table "users", force: true do |t|
     t.string   "name"
+    t.string   "gravatar"
     t.string   "cohort_name"
     t.integer  "cohort_id"
     t.string   "email"

@@ -22,7 +22,7 @@ class LocationsController < ApplicationController
                       json_string: params[:location][:json_string]
     	)
     current_user.location_id = location.id
-
+    current_user.save
 
     redirect_to '/map'
 
