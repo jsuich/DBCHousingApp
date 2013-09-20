@@ -26,9 +26,10 @@ ActiveRecord::Schema.define(version: 20130918230436) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name",         null: false
-    t.string   "cohort",       null: false
-    t.string   "email",        null: false
+    t.string   "name"
+    t.string   "cohort_name"
+    t.integer  "cohort_id"
+    t.string   "email"
     t.string   "phone_number"
     t.integer  "location_id"
     t.datetime "created_at"
