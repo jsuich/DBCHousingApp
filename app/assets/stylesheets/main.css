@@ -29,44 +29,136 @@ p{
   color: black;
 }
 
+.loginWrapper {
+  display: block;
+  position: fixed;
+  top: 100px;
+}
+
+#loginPage {
+  top: 50px;
+  background-image: url('/blueFrontDoor.jpg');
+  width: 100%;
+  height: 100%;
+/*  max-height: 768px;
+  max-width: 1152px;*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: fixed;
+  z-index: -1;
+}
+
+#loginMenu{
+  position: fixed;
+  width: 300px;
+  height: 150px;
+  left: 20px;
+  background-color: white;
+
+  border-radius: 5px;
+  color: black;
+  /*text-align: center;*/
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid gray;
+  font-family: "Lucidia Sans Unicode", "Lucidia Grande", sans-serif;
+}
+
+#loginMenu h3 {
+  margin-left: -10px;
+  padding-left:20px;
+  padding-right:20px;
+  display: inline-block;
+}
+
+#socratesLogo {
+  background-image: url('/socrates_on_white.gif');
+  width: 75px;
+  height: 75px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  float: right;
+}
+
+.inputs input{
+/*  margin: 10px 10px 10px 10px;*/
+  display: block;
+  position: inherit;
+  margin-top: 10px;
+  margin-left: 10px;
+  opacity: 1.0;
+  width: 200px;
+  height: 22px;
+  border-radius: 3px;
+  opacity: 1.0;
+  padding-left: 4px;
+  font-size: 12px;
+}
+
+.submit input{
+/*  margin: 10px 10px 10px 10px;*/
+  display: block;
+  position: inherit;
+  margin-top: 10px;
+  margin-left: 10px;
+  opacity: 1.0;
+  width: 60px;
+  height: 35px;
+  background-color: #004CBF;
+  color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 15px;
+}
+
 nav {
-  background-color: black;
-  height: 3em;
+  background-color: #004cbf;
+  height: 50px;
   position: fixed;
   top: 0px;
   color: white;
   width: 100%;
   margin: auto;
-}
-
-nav div{
-  /*width: 70%;*/
-  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 nav #logo{
-  background: url("../images/goat.jpg");
-  margin-left: .5em;
-  float: left;
-  width: 3em;
-  height: 100%;
-  background-size: contain;
+  height: 80px;
+  width: 80px;
+  background-image: url('/dbcHousingLogo.png');
+  background-size: 80px 80px;
   background-repeat: no-repeat;
-}
+  background-position: center;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  display: inline-block;
+  position: fixed;
 
-nav .login {
-   float: right;
-   padding: .5em;
-   font-size: 1.5em;
-   text-decoration: none;
-   color: inherit;
 }
 
 nav h2 {
   display: inline-block;
   font-size: 1.5em;
-  padding: .5em 0;
+  padding: 15px 0;
+  margin-left: 100px;
   color: white;
+  font-family: "Lucidia Sans Unicode", "Lucidia Grande", sans-serif;
+}
+
+nav .login {
+  font-family: "Lucidia Sans Unicode", "Lucidia Grande", sans-serif;
+  float: right;
+  padding: .5em;
+  font-size: 1.5em;
+  text-decoration: none;
+  color: black;
 }
 
 .mainWrapper {

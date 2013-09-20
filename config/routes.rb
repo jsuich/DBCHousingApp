@@ -9,7 +9,7 @@ DBCHousingApp::Application.routes.draw do
   get '/auth/:provider/callback', :to => 'sessions#create'
   get '/auth/failure', :to => 'sessions#failure'
   #this is our actual login route
-  #post '/login' => 'sessions#create'
+  post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
   get '/map'  =>  'map#index'
