@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def new
+    redirect_to '/auth/dbc'
 
   end
 
