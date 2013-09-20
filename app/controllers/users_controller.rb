@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-
+    redirect_to '/map'
   end
 
 end
