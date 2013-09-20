@@ -37,6 +37,8 @@ gem 'selenium-webdriver'
 
 gem 'dbc-ruby'
 
+gem 'json'
+
 gem 'omniauth'
 gem 'omniauth-dbc'
 

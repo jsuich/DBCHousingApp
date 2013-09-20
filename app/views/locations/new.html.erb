@@ -1,0 +1,25 @@
+<div class="newUserWrapper">
+  <div id="form">
+    <h3>Fill in your info</h3>
+  <%= form_for @location do |f|%>
+
+  <%= f.text_field :street_address, :placeholder => "123 Main St., Apt. #" %>
+  <%= f.text_field :city, :placeholder => "Chicago" %>
+  <%= f.text_field :state, :placeholder => "IL" %>
+  <%= f.text_field :zip, :placeholder => "60606" %>
+  <%= f.hidden_field :json_string %>
+    <button class="check">Check Address</button>
+    <p class="error"> </p>
+
+    <div class="yesno">
+    <p>Does the map show a marker at your correct address?</p>
+    <button class="yes">yes</button> <button class="no">no</button>
+    </div>
+
+  <%=f.submit "submit"%>
+
+  <% end %>
+  </div>
+  <div id="map-canvas"></div>
+
+</div>
