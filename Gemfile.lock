@@ -202,7 +202,7 @@ DEPENDENCIES
   guard
   jbuilder (~> 1.2)
   jquery-rails
-  json
+  json (~> 1.8.0)
   launchy
   omniauth
   omniauth-dbc

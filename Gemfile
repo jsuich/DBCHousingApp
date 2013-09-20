@@ -26,6 +26,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem "json", "~> 1.8.0"
 # gem 'rspec'
 # gem 'rspec-core'
 
@@ -37,7 +38,6 @@ gem 'selenium-webdriver'
 
 gem 'dbc-ruby'
 
-gem 'json'
 
 gem 'omniauth'
 gem 'omniauth-dbc'

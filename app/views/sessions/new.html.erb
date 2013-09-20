@@ -8,22 +8,7 @@
       <div id="socratesLogo"></div>
 
     <div id="loginForm">
-
-      <%= form_for(:session, url: login_path) do |f|%>
-
-      <div class="inputs">
-        <%= f.text_field :email, placeholder: "Email" %>
-      </div>
-
-      <div class="inputs">
-        <%= f.password_field :password, placeholder: "Password" %>
-      </div>
-
-      <div class="submit">
-        <%= f.submit "Login" %>
-      </div>
-
-    <% end %>
+      <a id="login" href="/auth/dbc">Login</a>
     </div>
 
   </div>
