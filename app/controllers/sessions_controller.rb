@@ -5,8 +5,8 @@ class SessionsController < ApplicationController
   end
 
   def new
+    #this will load our welcome page, a button will send to 'auth/dbc'
     redirect_to '/auth/dbc'
-
   end
 
   def create
