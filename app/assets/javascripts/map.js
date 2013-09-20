@@ -1,7 +1,7 @@
-function initialize() {
+function mapInit() {
+  console.log("initilized");
 
   grabLocations();
-
   var latlng = new google.maps.LatLng(41.8899109, -87.6376566);
   var mapOptions = {
     zoom: 10,
@@ -32,17 +32,28 @@ function initialize() {
 
 
 function grabLocations () {
+  console.log('location function');
+
   $.ajax({
-    url: '/path/to/file',
-    type: 'default GET (Other values: POST)',
-    dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-    data: {param1: 'value1'},
+    url: '/grablocations',
+    type: 'get',
+    // dataType: 'text/javascript'
   })
-  .done(function() {
+  .done(function(response) {
     console.log("success");
+    console.log(response);
+
+
+    $(response).each(function(index, el) {
+      var locationObject = $.parseJSON(el)
+      setMarker(locationObject);
+    });
+
+
   })
-  .fail(function() {
+  .fail(function(response) {
     console.log("error");
+    console.log(response);
   })
   .always(function() {
     console.log("complete");
@@ -50,7 +61,17 @@ function grabLocations () {
 
 }
 
+function setMarker (locationObject) {
+  console.log(locationObject[0]);
+  console.log(locationObject[0].geometry.location);
 
+  var latlng = new google.maps.LatLng(locationObject[0].geometry.location.ob,locationObject[0].geometry.location.pb);
+
+  var marker = new google.maps.Marker({
+          map: map,
+      });
+  marker.setPosition(latlng);
+}
 
 
 
@@ -59,9 +80,9 @@ function grabLocations () {
 $(document).ready(function() {
 
 if ($('.mapWrapper').length > 0){
-  initialize();
-  codeAddress();
-  console.log('words');
+  console.log("words are here");
+  mapInit();
+  // codeAddress();
   }
 
 

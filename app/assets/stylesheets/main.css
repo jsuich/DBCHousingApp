@@ -124,8 +124,6 @@ nav {
   color: white;
   width: 100%;
   margin: auto;
-  padding-left: 20px;
-  padding-right: 20px;
 }
 
 nav #logo{
@@ -158,7 +156,7 @@ nav .login {
   padding: .5em;
   font-size: 1.5em;
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .mainWrapper {
