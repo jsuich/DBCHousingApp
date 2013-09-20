@@ -17,3 +17,4 @@
 
 *Ignore all .yaml files
 /config/*.yaml
+/config/locales/dbc.yaml
