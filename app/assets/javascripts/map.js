@@ -1,7 +1,6 @@
-function initialize() {
+function mapInit() {
 
   grabLocations();
-
   var latlng = new google.maps.LatLng(41.8899109, -87.6376566);
   var mapOptions = {
     zoom: 10,
@@ -32,17 +31,28 @@ function initialize() {
 
 
 function grabLocations () {
+
   $.ajax({
-    url: '/path/to/file',
-    type: 'default GET (Other values: POST)',
-    dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)',
-    data: {param1: 'value1'},
+    url: '/grablocations',
+    type: 'get',
+    // dataType: 'text/javascript'
   })
-  .done(function() {
+  .done(function(response) {
     console.log("success");
+    console.log(response);
+
+
+    $(response).each(function(index, el) {
+      // console.log(el);
+      // var locationObject = $.parseJSON(el)
+      setMarker(el);
+    });
+
+
   })
-  .fail(function() {
+  .fail(function(response) {
     console.log("error");
+    console.log(response);
   })
   .always(function() {
     console.log("complete");
@@ -50,7 +60,29 @@ function grabLocations () {
 
 }
 
+function setMarker (stringArray) {
+  // console.log(locationObject[0]);
+  var locationObject = $.parseJSON(stringArray[1])
+  console.log(locationObject);
 
+  var latlng = new google.maps.LatLng(locationObject[0].geometry.location.ob,locationObject[0].geometry.location.pb);
+
+
+  var marker = new google.maps.Marker({
+          map: map,
+      });
+  marker.setPosition(latlng);
+
+  var contentString = stringArray[0]
+
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map, marker);
+  });
+}
 
 
 
@@ -59,9 +91,8 @@ function grabLocations () {
 $(document).ready(function() {
 
 if ($('.mapWrapper').length > 0){
-  initialize();
-  codeAddress();
-  console.log('words');
+  mapInit();
+  // codeAddress();
   }
 
 

@@ -15,7 +15,7 @@ function initialize() {
 }
 
 function codeAddress() {
-  var address = $('#user_street_address').val() + ', ' + $('#user_city').val();
+  var address = $('#location_street_address').val() + ', ' + $('#location_city').val();
   geocoder.geocode( { 'address': address}, function(results, status) {
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
@@ -27,7 +27,7 @@ function codeAddress() {
 
       $('.error').hide();
       $('.yesno').show();
-      $('#user_json').val(JSON.stringify(results));
+      $('#location_json_string').val(JSON.stringify(results));
 
       markers.push(marker);
 

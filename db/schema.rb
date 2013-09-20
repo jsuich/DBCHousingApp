@@ -21,12 +21,14 @@ ActiveRecord::Schema.define(version: 20130918230436) do
     t.string   "city",           null: false
     t.string   "state",          null: false
     t.integer  "zip",            null: false
+    t.text     "json_string",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
     t.string   "name"
+    t.string   "gravatar"
     t.string   "cohort_name"
     t.integer  "cohort_id"
     t.string   "email"
