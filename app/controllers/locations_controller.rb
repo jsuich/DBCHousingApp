@@ -14,13 +14,15 @@ class LocationsController < ApplicationController
     state = json_hash[0]['address_components'][5]['long_name']
     zip = json_hash[0]['address_components'][7]['long_name']
 
-    Location.create(
+    location = Location.create(
                       street_address: street_number + " " + street_name,
                       city: city,
                       state: state,
                       zip: zip,
                       json_string: params[:location][:json_string]
     	)
+    current_user.location_id = location.id
+
 
     redirect_to '/map'
 

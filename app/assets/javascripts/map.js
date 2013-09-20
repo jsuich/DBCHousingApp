@@ -1,5 +1,4 @@
 function mapInit() {
-  console.log("initilized");
 
   grabLocations();
   var latlng = new google.maps.LatLng(41.8899109, -87.6376566);
@@ -32,7 +31,6 @@ function mapInit() {
 
 
 function grabLocations () {
-  console.log('location function');
 
   $.ajax({
     url: '/grablocations',
@@ -45,8 +43,9 @@ function grabLocations () {
 
 
     $(response).each(function(index, el) {
-      var locationObject = $.parseJSON(el)
-      setMarker(locationObject);
+      // console.log(el);
+      // var locationObject = $.parseJSON(el)
+      setMarker(el);
     });
 
 
@@ -61,11 +60,15 @@ function grabLocations () {
 
 }
 
-function setMarker (locationObject) {
-  console.log(locationObject[0]);
-  console.log(locationObject[0].geometry.location);
+function setMarker (stringArray) {
+  // console.log(locationObject[0]);
+  var locationObject = $.parseJSON(stringArray[1])
+  console.log(locationObject);
 
   var latlng = new google.maps.LatLng(locationObject[0].geometry.location.ob,locationObject[0].geometry.location.pb);
+
+
+
 
   var marker = new google.maps.Marker({
           map: map,
@@ -80,7 +83,6 @@ function setMarker (locationObject) {
 $(document).ready(function() {
 
 if ($('.mapWrapper').length > 0){
-  console.log("words are here");
   mapInit();
   // codeAddress();
   }
