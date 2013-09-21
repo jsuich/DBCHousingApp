@@ -259,8 +259,35 @@ nav .login {
   padding: 10px;
 }
 
+.mapWrapper .info li{
+  padding-bottom: .5em;
+  min-width: 250px;
+}
 
+.mapWrapper .info .location-header{
+  padding: .5em 0;
+}
+.mapWrapper .info .location-header h3{
+  padding-bottom: .25em;
+}
 
+.mapWrapper .info h3{
+  /*padding: .5em 0;*/
+}
+
+.mapWrapper .info img{
+  width: 75px;
+  float: left;
+  margin-right: .5em;
+}
+
+.mapWrapper .info p {
+  padding-bottom: .25em;
+}
+
+.mapWrapper .info p.name{
+  font-weight: 600;
+}
 
 
 
