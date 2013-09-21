@@ -16,7 +16,11 @@
     <h2>DBC Housing Hub</h2>
     <% if current_user %>
       <a class="login" href="/logout">Logout</a>
-      <a class ="login" href="/">Profile</a>
+        <% if current_user.location_id != nil %>
+          <a class ="login" href="/map">Profile</a>
+        <% else %>
+          <a class ="login" href="/locations/new">Add Location</a>
+        <% end %>
     <% end %>
   </nav>
 
