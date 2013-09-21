@@ -3,7 +3,11 @@ require 'json'
 class LocationsController < ApplicationController
 
   def new
-    @location = Location.new
+    if current_user
+      @location = Location.new
+    else
+      redirect_to '/'
+    end
   end
 
   def create
@@ -14,8 +18,8 @@ class LocationsController < ApplicationController
     state = json_hash[0]['address_components'][5]['long_name']
     zip = json_hash[0]['address_components'][7]['long_name']
 
-    location = Location.create(
-                      street_address: street_number + " " + street_name,
+    location = Location.find_or_create_by(street_address: street_number + " " + street_name)
+    location.update_attributes(
                       city: city,
                       state: state,
                       zip: zip,
