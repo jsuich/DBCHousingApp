@@ -3,6 +3,8 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
       t.string :name
       t.string :gravatar
+      t.string :twitter_handle
+      t.string :facebook_handle
       t.string :cohort_name
       t.integer :cohort_id
       t.string :email

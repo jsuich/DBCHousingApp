@@ -33,6 +33,7 @@ function codeAddress() {
 
 
     } else {
+      console.log(status);
       $('.error').text("Google couldn't find that address! :(");
       $('.check').show();
 
@@ -48,22 +49,21 @@ function handleButtons () {
   $('.check').click(function(event) {
     event.preventDefault();
     $(this).hide();
-
+    deleteMarkers();
 
     codeAddress();
 
     $('.no').click(function(event) {
       event.preventDefault()
-      $('#user_street_address').focus();
+      $('#location_street_address').focus();
       $(this).parent().hide();
       $('.check').show();
 
-      deleteMarkers();
     });
 
     $('.yes').click(function(event) {
       event.preventDefault();
-      $('.newUserWrapper form').submit();
+      $('.newLocationWrapper form').submit();
     });
 
   });
@@ -81,8 +81,8 @@ function deleteMarkers () {
 
 
 $(document).ready(function() {
-// console.log($('.newUserWrapper'));
-if ($('.newUserWrapper').length > 0){
+// console.log($('.newLocationWrapper'));
+if ($('.newLocationWrapper').length > 0){
   initialize();
   handleButtons();
   }
