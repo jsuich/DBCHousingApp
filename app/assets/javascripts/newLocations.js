@@ -63,7 +63,7 @@ function handleButtons () {
 
     $('.yes').click(function(event) {
       event.preventDefault();
-      $('.newUserWrapper form').submit();
+      $('.newLocationWrapper form').submit();
     });
 
   });
@@ -81,8 +81,8 @@ function deleteMarkers () {
 
 
 $(document).ready(function() {
-// console.log($('.newUserWrapper'));
-if ($('.newUserWrapper').length > 0){
+// console.log($('.newLocationWrapper'));
+if ($('.newLocationWrapper').length > 0){
   initialize();
   handleButtons();
   }

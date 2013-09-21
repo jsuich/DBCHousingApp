@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20130918230436) do
   enable_extension "plpgsql"
 
   create_table "locations", force: true do |t|
+    t.string   "name"
     t.string   "street_address", null: false
     t.string   "city",           null: false
     t.string   "state",          null: false
@@ -29,6 +30,8 @@ ActiveRecord::Schema.define(version: 20130918230436) do
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "gravatar"
+    t.string   "twitter_handle"
+    t.string   "facebook_handle"
     t.string   "cohort_name"
     t.integer  "cohort_id"
     t.string   "email"
