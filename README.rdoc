@@ -1,7 +1,5 @@
 == README
 
-Main Login Page is '/auth/dbc' NOT '/'
-
 Trello Board: <https://trello.com/b/WMrSTaRQ>
 
 DBC Housing App:
