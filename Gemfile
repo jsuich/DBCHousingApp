@@ -42,6 +42,8 @@ gem 'dbc-ruby'
 gem 'omniauth'
 gem 'omniauth-dbc'
 
+gem 'newrelic_rpm'
+
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
 end
