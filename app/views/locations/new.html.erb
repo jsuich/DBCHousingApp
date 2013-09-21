@@ -4,8 +4,8 @@
   <%= form_for @location do |f|%>
 
   <%= f.text_field :street_address, :placeholder => "123 Main St., Apt. #" %>
-  <%= f.text_field :city, :placeholder => "Chicago" %>
-  <%= f.text_field :state, :placeholder => "IL" %>
+  <%= f.text_field :city, :value => "Chicago" %>
+  <%= f.text_field :state, :value => "IL" %>
   <%= f.text_field :zip, :placeholder => "60606" %>
   <%= f.hidden_field :json_string %>
     <button class="check">Check Address</button>
