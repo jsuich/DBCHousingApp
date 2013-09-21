@@ -20,8 +20,14 @@
 /config/locales/dbc.yaml
 
 # On Josh Suich's local computer (local cert fix)
+
 /config/initializers/fix_ssl.rb
+
 /lib/ca-bundle.crt
 /lib/PositiveSSLCA2.crt
+/PositiveSSLCA2.crt
+
 /log/newrelic_agent.log
+
 /public/welcome.png
+/public/dbc.png
