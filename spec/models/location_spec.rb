@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Location do
-  context "requires a street address, city, state, and zip" do
+  context "requires a street address" do
     it "requires a street" do
       location = Location.new(city: "Chicago", state: "IL", zip: "60654")
       location.valid?.should == false
