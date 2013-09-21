@@ -23,11 +23,18 @@ class ApplicationController < ActionController::Base
         </div>
        <ul>"
     location.users.each do |user|
-       @user_string << "<li>
+
+      handle = user.grab_handle
+      # facebook = user.grab_facebook
+
+       @user_string << "<li class ='cf'>
        <img src='#{user.gravatar}'>
        <p class='name'>#{user.name}:</p>
-       <p>#{user.cohort_name.gsub(/\s.+/, '')}</p>
-       <p>#{user.email}</p>
+       <p>- #{user.cohort_name.gsub(/\s.+/, '')}</p>
+       <p>- #{user.email}</p>
+       <p><a href='#{user.twitter_handle}' target='_blank'>#{handle}</a></p>
+
+
 
        </li>"
     end
