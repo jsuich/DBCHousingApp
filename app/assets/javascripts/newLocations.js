@@ -54,7 +54,7 @@ function handleButtons () {
     codeAddress();
 
     $('.no').click(function(event) {
-      event.preventDefault()
+      event.preventDefault();
       $('#location_street_address').focus();
       $(this).parent().hide();
       $('.check').show();
