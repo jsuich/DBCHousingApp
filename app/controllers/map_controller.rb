@@ -11,6 +11,7 @@ class MapController < ApplicationController
 
   def grablocations
     if current_user
+      # Location.purge_empty_locations
       empty_array = []
       all_locations = Location.all
 
