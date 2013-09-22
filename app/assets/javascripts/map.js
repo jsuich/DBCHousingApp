@@ -14,7 +14,7 @@ function mapInit() {
   var marker = new google.maps.Marker({
     map: map,
     position: latlng,
-    icon: "boot.png"
+    icon: "35px/boot.png"
   });
 
   var contentString =
@@ -25,7 +25,7 @@ function mapInit() {
           "</div>"+
           "<ul>"+
             "<li class='cf'>"+
-            "<img src='boot.png'>"+
+            "<img src='50px/boot.png'>"+
             // "<p class='name'>Nick Smit:</p>"+
             "<p>- hello@devbootcamp.com</p>"+
             "<p><a href='https://twitter.com/devbootcamp' target='_blank'>- @devbootcamp</a></p>"+
@@ -138,10 +138,10 @@ function labelMarker (marker, cohorts) {
   // console.log((_.pluck(cohorts,"name"));
   cohortNames = _.pluck(cohorts,"name");
   if (cohortNames.length > 1) {
-    marker.setIcon('hackerHouse.png');
+    marker.setIcon('35px/hackerHouse.png');
   }
   else{
-    marker.setIcon(cohortNames[0]+'.png');
+    marker.setIcon('35px/'+cohortNames[0]+'.png');
   }
 
 }
