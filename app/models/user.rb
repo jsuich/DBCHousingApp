@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   def grab_handle
     p self.twitter_handle
     p self.name
-    if self.twitter_handle != nil
+    unless self.twitter_handle == nil || self.twitter_handle == ""
       handle = "- @" + self.twitter_handle.split('/')[-1]
     else
       return nil
