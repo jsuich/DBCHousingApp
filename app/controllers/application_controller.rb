@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
       @location_string =
        "<div class='info'>
        <div class='location-header'>
-        <h3>Spesman's Love Shack</h3>
+        <h3>#{location.name}</h3>
         <h4>#{location.street_address}</h4>
         </div>
        <ul>"

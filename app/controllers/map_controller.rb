@@ -15,9 +15,11 @@ class MapController < ApplicationController
       all_locations = Location.all
 
       all_locations.each do |location|
-        empty_array << [buildHtml(location), (location.json_string)]
+
+        cohorts = location.grab_cohorts
+
+        empty_array << [buildHtml(location), location.json_string, cohorts.to_json]
       end
-      p empty_array
 
       # all_locations = Location.all
       # json_strings = []
