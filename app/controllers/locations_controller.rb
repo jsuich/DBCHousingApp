@@ -12,6 +12,7 @@ class LocationsController < ApplicationController
 
   def create
     json_hash = JSON.parse(params[:location][:json_string])
+    name = params[:location][:name]
     street_number = json_hash[0]['address_components'][0]['long_name']
     street_name = json_hash[0]['address_components'][1]['long_name']
     city = json_hash[0]['address_components'][3]['long_name']
@@ -20,6 +21,7 @@ class LocationsController < ApplicationController
 
     location = Location.find_or_create_by(street_address: street_number + " " + street_name)
     location.update_attributes(
+                      name: name,
                       city: city,
                       state: state,
                       zip: zip,

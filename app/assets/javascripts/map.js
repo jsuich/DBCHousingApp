@@ -1,3 +1,5 @@
+var infowindow
+
 function mapInit() {
 
   grabLocations();
@@ -62,30 +64,81 @@ function grabLocations () {
 
 function setMarker (stringArray) {
   // console.log(locationObject[0]);
-  var locationObject = $.parseJSON(stringArray[1])
-  console.log(locationObject);
+  var locationObject = $.parseJSON(stringArray[1]);
+  cohortsObject = $.parseJSON(stringArray[2]);
+  console.log(cohortsObject);
+
+  // console.log(locationObject);
 
   var latlng = new google.maps.LatLng(locationObject[0].geometry.location.ob,locationObject[0].geometry.location.pb);
 
 
   var marker = new google.maps.Marker({
           map: map,
+     position: latlng
       });
-  marker.setPosition(latlng);
 
-  var contentString = stringArray[0]
+    labelMarker(marker, cohortsObject);
 
-  var infowindow = new google.maps.InfoWindow({
-      content: contentString
-  });
+
+    markers.push(marker);
+    console.log(marker.get("cohort"));
+
+  var contentString = stringArray[0];
+
 
   google.maps.event.addListener(marker, 'click', function() {
+    if(infowindow) {
+      infowindow.close();
+    }
+    infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
     infowindow.open(map, marker);
   });
 }
 
 
+function labelMarker (marker, cohorts) {
+  marker.set("cohort", cohorts);
 
+}
+
+function checkMarkerCohorts(cohorts) {
+  var result = _.some(cohorts, function (cohort) {
+      return _.contains(selectedCohorts,cohort);
+  });
+    return result;
+
+}
+
+function refreshMarkers () {
+  selectedCohorts = [];
+  $('#mapOptions li.selected').each(function() {
+    selectedCohorts.push($(this).text());
+  });;
+  console.log(selectedCohorts);
+  console.log(markers);
+
+
+  $(markers).each(function(index, marker) {
+    var cohortsToTest = _.pluck(marker.cohort,'name');
+    console.log(cohortsToTest);
+
+    result = checkMarkerCohorts(cohortsToTest);
+    console.log(marker.cohort);
+    console.log(result);
+
+    if(result == false){
+      marker.setMap();
+    }
+    else{
+      marker.setMap(map);
+    }
+
+  });
+
+}
 
 
 $(document).ready(function() {
@@ -95,6 +148,12 @@ if ($('.mapWrapper').length > 0){
   // codeAddress();
   }
 
+
+  $('#mapOptions li').click(function(event) {
+    $(this).toggleClass('selected');
+
+    refreshMarkers();
+  });
 
 
 });

@@ -270,11 +270,21 @@ nav .login {
 
 .mapWrapper #mapOptions {
   text-align: left;
-  margin-top: 10px;
   border: 2px solid white;
   border-radius: 5px;
-  height: 780px;
+  /*height: 780px;*/
   padding: 10px;
+}
+
+.mapWrapper #mapOptions ul li {
+  padding: .25em 0;
+  text-align: center;
+  border-bottom: 1px white solid;
+  color: white;
+}
+
+.mapWrapper #mapOptions ul li.selected {
+  color: black;
 }
 
 .mapWrapper .info li{
