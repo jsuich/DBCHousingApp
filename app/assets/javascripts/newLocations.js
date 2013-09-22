@@ -82,10 +82,10 @@ function deleteMarkers () {
 
 $(document).ready(function() {
 // console.log($('.newLocationWrapper'));
-if ($('.newLocationWrapper').length > 0){
-  initialize();
-  handleButtons();
-  }
+// if ($('.newLocationWrapper').length > 0){
+//   initialize();
+//   handleButtons();
+//   }
 
 
 

@@ -10,6 +10,39 @@ function mapInit() {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var marker = new google.maps.Marker({
+    map: map,
+    position: latlng,
+    icon: "boot.png"
+  });
+
+  var contentString =
+        "<div class='info'>"+
+          "<div class='location-header'>"+
+          "<h3>Devbootcamp</h3>"+
+          "<h4>351 West Hubbard Street</h4>"+
+          "</div>"+
+          "<ul>"+
+            "<li class='cf'>"+
+            "<img src='boot.png'>"+
+            // "<p class='name'>Nick Smit:</p>"+
+            "<p>- hello@devbootcamp.com</p>"+
+            "<p><a href='https://twitter.com/devbootcamp' target='_blank'>- @devbootcamp</a></p>"+
+            "</li>"+
+          "</ul>"
+        "</div>";
+
+  google.maps.event.addListener(marker, 'click', function() {
+    if(infowindow) {
+      infowindow.close();
+    }
+    infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+    infowindow.open(map, marker);
+  });
+
 }
 
 // function codeAddress() {
@@ -66,7 +99,6 @@ function setMarker (stringArray) {
   // console.log(locationObject[0]);
   var locationObject = $.parseJSON(stringArray[1]);
   cohortsObject = $.parseJSON(stringArray[2]);
-  console.log(cohortsObject);
 
   // console.log(locationObject);
 
@@ -78,11 +110,13 @@ function setMarker (stringArray) {
      position: latlng
       });
 
+    // setIcon(marker);
+
     labelMarker(marker, cohortsObject);
 
 
     markers.push(marker);
-    console.log(marker.get("cohort"));
+    console.log(marker.cohort);
 
   var contentString = stringArray[0];
 
@@ -101,6 +135,14 @@ function setMarker (stringArray) {
 
 function labelMarker (marker, cohorts) {
   marker.set("cohort", cohorts);
+  // console.log((_.pluck(cohorts,"name"));
+  cohortNames = _.pluck(cohorts,"name");
+  if (cohortNames.length > 1) {
+    marker.setIcon('hackerHouse.png');
+  }
+  else{
+    marker.setIcon(cohortNames[0]+'.png');
+  }
 
 }
 
@@ -143,10 +185,17 @@ function refreshMarkers () {
 
 $(document).ready(function() {
 
-if ($('.mapWrapper').length > 0){
+  if ($('.mapWrapper').length > 0){
   mapInit();
   // codeAddress();
   }
+
+  if ($('.newLocationWrapper').length > 0){
+  initialize();
+  handleButtons();
+  }
+
+  document.addEventListener('page:load', pageLoad)
 
 
   $('#mapOptions li').click(function(event) {
@@ -157,3 +206,18 @@ if ($('.mapWrapper').length > 0){
 
 
 });
+
+function pageLoad() {
+  console.log('test');
+  if ($('.mapWrapper').length > 0){
+  mapInit();
+  // codeAddress();
+  }
+
+  if ($('.newLocationWrapper').length > 0){
+  initialize();
+  handleButtons();
+  }
+}
+
+
