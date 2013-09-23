@@ -5,7 +5,7 @@ function mapInit() {
   grabLocations();
   var latlng = new google.maps.LatLng(41.8899109, -87.6376566);
   var mapOptions = {
-    zoom: 10,
+    zoom: 12,
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
@@ -148,8 +148,10 @@ function labelMarker (marker, cohorts) {
 
 function checkMarkerCohorts(cohorts) {
   var result = _.some(cohorts, function (cohort) {
+      console.log(cohort);
       return _.contains(selectedCohorts,cohort);
   });
+    console.log(result);
     return result;
 
 }
@@ -160,16 +162,16 @@ function refreshMarkers () {
     selectedCohorts.push($(this).text());
   });;
   console.log(selectedCohorts);
-  console.log(markers);
+  // console.log(markers);
 
 
   $(markers).each(function(index, marker) {
     var cohortsToTest = _.pluck(marker.cohort,'name');
-    console.log(cohortsToTest);
+    // console.log(cohortsToTest);
 
     result = checkMarkerCohorts(cohortsToTest);
-    console.log(marker.cohort);
-    console.log(result);
+    // console.log(marker.cohort);
+    // console.log(result);
 
     if(result == false){
       marker.setMap();
