@@ -1,5 +1,7 @@
 == README
 
+Change all .css files to .css.erb for Heroku || Install ??Gem?? to make css work on Heroku
+
 Trello Board: <https://trello.com/b/WMrSTaRQ>
 
 DBC Housing App:
